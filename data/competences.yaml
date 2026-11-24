@@ -1,0 +1,12 @@
+- categorie: CI/CD
+  items: [GitHub Actions, GitLab CI, Pipelines de build et de déploiement]
+- categorie: Cloud (AWS)
+  items: [EC2, S3, CloudFront, IAM, VPC]
+- categorie: Infrastructure as Code
+  items: [Terraform, Ansible]
+- categorie: Conteneurs et orchestration
+  items: [Docker, Kubernetes]
+- categorie: Réseau
+  items: [TCP/IP, Sous-réseaux et routage, DNS, Pare-feu]
+- categorie: Systèmes
+  items: [Linux, Bash, Git]

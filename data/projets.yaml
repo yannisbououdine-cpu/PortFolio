@@ -1,0 +1,27 @@
+# Pour ajouter un projet : copier un bloc, remplir les champs,
+# passer statut à "termine" et renseigner le lien vers le dépôt.
+- titre: Ce portfolio
+  description: Site statique Hugo, construit et déployé automatiquement sur GitHub Pages par GitHub Actions à chaque push.
+  technos: [Hugo, GitHub Actions, GitHub Pages]
+  lien: https://github.com/yannisbououdine-cpu/portfolio
+  statut: termine
+- titre: Pipeline CI/CD complet
+  description: Application conteneurisée avec tests, build d'image Docker et déploiement automatisé.
+  technos: [GitHub Actions, Docker]
+  lien: ""
+  statut: a-venir
+- titre: Infrastructure AWS avec Terraform
+  description: VPC, sous-réseaux, sécurité et hébergement de ce site sur S3 + CloudFront, entièrement décrits en code.
+  technos: [Terraform, AWS]
+  lien: ""
+  statut: a-venir
+- titre: Réseau virtuel
+  description: Conception d'une topologie réseau segmentée (VLAN, routage, pare-feu) et documentation.
+  technos: [Réseau, Linux]
+  lien: ""
+  statut: a-venir
+- titre: Cluster Kubernetes
+  description: Déploiement d'une application sur Kubernetes avec manifestes, Ingress et supervision.
+  technos: [Kubernetes, Helm]
+  lien: ""
+  statut: a-venir

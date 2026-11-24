@@ -1,0 +1,11 @@
+baseURL = "https://yannisbououdine-cpu.github.io/portfolio/"
+languageCode = "fr-FR"
+title = "Yannis Bououdine · DevOps"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "section", "page"]
+
+[params]
+  name = "Yannis Bououdine"
+  role = "Étudiant en Master DevOps"
+  github = "https://github.com/yannisbououdine-cpu"
+  linkedin = ""
+  email = ""
