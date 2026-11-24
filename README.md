@@ -8,18 +8,20 @@ Site vitrine de mes projets DevOps réalisés pendant mon Master (M1 et M2).
 
 Le site est lui-même un premier projet DevOps :
 
-- **Site statique** généré avec [Hugo](https://gohugo.io/), sans thème externe (HTML + CSS maison).
+- **Site statique** généré avec [Hugo](https://gohugo.io/), sans thème externe : une seule page immersive (nuage de particules qui s'assemble au scroll, textes révélés lettre par lettre, carrousel de projets), animée avec GSAP hébergé dans le dépôt (aucune dépendance à un CDN).
 - **CI/CD** : à chaque `push` sur `main`, GitHub Actions construit le site et le déploie sur GitHub Pages ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)).
 - **Contenu séparé du code** : les compétences et les projets sont des fichiers de données YAML.
 
 ```
 .
 ├── .github/workflows/deploy.yml   # pipeline build + déploiement
-├── content/_index.md              # texte « À propos »
+├── content/_index.md              # accroche et manifeste (À propos)
 ├── data/competences.yaml          # liste des compétences
 ├── data/projets.yaml              # liste des projets
 ├── layouts/index.html             # gabarit de la page
-├── static/css/style.css           # styles
+├── static/css/style.css           # styles (registre sombre, Syne + Space Mono)
+├── static/js/main.js              # animations (particules, scroll, menu, carrousel)
+├── static/js/gsap.min.js          # GSAP 3.12.5 + ScrollTrigger, hébergés localement
 └── hugo.toml                      # configuration du site
 ```
 

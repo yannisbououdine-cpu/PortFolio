@@ -10,7 +10,7 @@
   technos: [GitHub Actions, Docker]
   lien: ""
   statut: a-venir
-- titre: Infrastructure AWS avec Terraform
+- titre: AWS avec Terraform
   description: VPC, sous-réseaux, sécurité et hébergement de ce site sur S3 + CloudFront, entièrement décrits en code.
   technos: [Terraform, AWS]
   lien: ""

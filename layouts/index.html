@@ -5,65 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ site.Title }}</title>
   <meta name="description" content="Portfolio DevOps de {{ site.Params.name }} : CI/CD, cloud AWS, Terraform, réseau, Kubernetes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 </head>
 <body>
-  <header class="hero">
-    <nav>
-      <a href="#a-propos">À propos</a>
-      <a href="#competences">Compétences</a>
-      <a href="#projets">Projets</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <h1>{{ site.Params.name }}</h1>
-    <p class="role">{{ site.Params.role }}</p>
-  </header>
+<div class="loader"><div class="loader__logo display">YB</div></div>
 
-  <main>
-    <section id="a-propos">
-      <h2>À propos</h2>
-      {{ .Content }}
-    </section>
+<a class="brand display" href="#top">YB</a>
+<button class="btn menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+<nav class="menu" id="menu">
+  <a class="display" href="#a-propos">À propos</a>
+  <a class="display" href="#competences">Compétences</a>
+  <a class="display" href="#projets">Projets</a>
+  <a class="display" href="#contact">Contact</a>
+</nav>
 
-    <section id="competences">
-      <h2>Compétences</h2>
-      <div class="grid">
-        {{ range site.Data.competences }}
-        <div class="card">
-          <h3>{{ .categorie }}</h3>
-          <ul class="tags">{{ range .items }}<li>{{ . }}</li>{{ end }}</ul>
+<main id="top">
+  <section class="stage" data-first>
+    <div class="stage__view grid">
+      <canvas class="stage__canvas" data-word="{{ upper (index (split site.Params.name " ") 0) }}" aria-hidden="true"></canvas>
+      <i class="cross" style="left:70%;top:25%" aria-hidden="true"></i>
+      <i class="cross" style="left:83%;top:15%" aria-hidden="true"></i>
+      <i class="cross" style="left:14%;top:72%" aria-hidden="true"></i>
+      <p class="hud hud--tl">{{ site.Params.name }}<br>{{ site.Params.role }}<br>M1 → M2 · ©{{ now.Year }}</p>
+      <p class="hud hud--tr">CI/CD · IaC<br>AWS · Kubernetes<br>Réseau · Linux</p>
+      <h1 class="stage__title" data-title>{{ .Params.accroche }}</h1>
+      <p class="hud hud--br">Heure locale <span data-clock></span> · ↓ Défiler</p>
+    </div>
+  </section>
+
+  <section class="read" id="a-propos">
+    <p class="label">[ À &nbsp;P R O P O S ]</p>
+    <p data-read>{{ .Params.manifeste }}</p>
+  </section>
+
+  <section class="offer" id="competences">
+    <p class="label">[ C O M P É T E N C E S ]</p>
+    {{ range $i, $c := site.Data.competences }}
+    <article class="card" data-reveal>
+      <span class="card__num display">{{ printf "%02d" (add $i 1) }}</span>
+      <h3>{{ $c.categorie }}</h3>
+      <ul class="tags">{{ range $c.items }}<li>{{ . }}</li>{{ end }}</ul>
+    </article>
+    {{ end }}
+  </section>
+
+  <section class="gallery" id="projets">
+    <p class="label label--pad">[ P R O J E T S ]</p>
+    <div class="rail">
+      {{ range $i, $p := site.Data.projets }}
+      <article class="slide">
+        <div class="project">
+          <div class="project__head">
+            <span class="card__num display">{{ printf "%02d" (add $i 1) }}</span>
+            <span class="status{{ if eq $p.statut "termine" }} status--done{{ end }}">{{ if eq $p.statut "termine" }}En ligne{{ else }}À venir{{ end }}</span>
+          </div>
+          <h3>{{ $p.titre }}</h3>
+          <p>{{ $p.description }}</p>
+          <ul class="tags">{{ range $p.technos }}<li>{{ . }}</li>{{ end }}</ul>
+          {{ with $p.lien }}<a class="bracket" href="{{ . }}"><span>Voir le dépôt</span></a>{{ end }}
         </div>
-        {{ end }}
-      </div>
-    </section>
+      </article>
+      {{ end }}
+    </div>
+    <div class="rail__nav">
+      <button class="btn" data-rail="-1" aria-label="Projet précédent">←</button>
+      <button class="btn" data-rail="1" aria-label="Projet suivant">→</button>
+    </div>
+  </section>
+</main>
 
-    <section id="projets">
-      <h2>Projets</h2>
-      <div class="grid">
-        {{ range site.Data.projets }}
-        <article class="card{{ if eq .statut "a-venir" }} upcoming{{ end }}">
-          {{ if eq .statut "a-venir" }}<span class="badge">À venir</span>{{ end }}
-          <h3>{{ .titre }}</h3>
-          <p>{{ .description }}</p>
-          <ul class="tags">{{ range .technos }}<li>{{ . }}</li>{{ end }}</ul>
-          {{ with .lien }}<a class="link" href="{{ . }}">Voir le dépôt →</a>{{ end }}
-        </article>
-        {{ end }}
-      </div>
-    </section>
+<footer class="footer" id="contact">
+  <div class="footer__cols">
+    <nav><a href="#a-propos">À propos</a><a href="#competences">Compétences</a><a href="#projets">Projets</a></nav>
+    <nav>
+      <a href="{{ site.Params.github }}">GitHub</a>
+      {{ with site.Params.linkedin }}<a href="{{ . }}">LinkedIn</a>{{ end }}
+    </nav>
+    {{ with site.Params.email }}
+    <p class="mail"><span>{{ . }}</span> <button class="btn btn--sm" data-copy="{{ . }}">Copier</button></p>
+    {{ end }}
+    <a class="bracket" href="{{ site.Params.github }}"><span>Me retrouver sur GitHub</span></a>
+  </div>
+  <p class="footer__note">Construit avec Hugo · déployé par GitHub Actions</p>
+  <div class="footer__word display" aria-hidden="true"><span>{{ upper (index (split site.Params.name " ") 0) }}</span></div>
+</footer>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <ul class="contact">
-        <li><a href="{{ site.Params.github }}">GitHub</a></li>
-        {{ with site.Params.linkedin }}<li><a href="{{ . }}">LinkedIn</a></li>{{ end }}
-        {{ with site.Params.email }}<li><a href="mailto:{{ . }}">{{ . }}</a></li>{{ end }}
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>Construit avec Hugo et déployé par GitHub Actions.</p>
-  </footer>
+<script src="{{ "js/gsap.min.js" | relURL }}"></script>
+<script src="{{ "js/ScrollTrigger.min.js" | relURL }}"></script>
+<script src="{{ "js/main.js" | relURL }}"></script>
 </body>
 </html>
