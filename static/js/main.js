@@ -65,8 +65,8 @@ function particleField(canvas){
   const field = {progress: 1, px: -9999, py: -9999};
   let W, H, pts = [];
   field.build = () => {
-    W = canvas.width = canvas.clientWidth * dpr;
-    H = canvas.height = canvas.clientHeight * dpr;
+    W = canvas.width = Math.round(canvas.clientWidth * dpr);
+    H = canvas.height = Math.round(canvas.clientHeight * dpr);
     const off = document.createElement('canvas');
     off.width = W; off.height = H;
     const o = off.getContext('2d', {willReadFrequently: true});
