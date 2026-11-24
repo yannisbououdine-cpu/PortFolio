@@ -3,7 +3,7 @@
 - titre: Ce portfolio
   description: Site statique Hugo, construit et déployé automatiquement sur GitHub Pages par GitHub Actions à chaque push.
   technos: [Hugo, GitHub Actions, GitHub Pages]
-  lien: https://github.com/yannisbououdine-cpu/portfolio
+  lien: https://github.com/yannisbououdine-cpu/PortFolio
   statut: termine
 - titre: Pipeline CI/CD complet
   description: Application conteneurisée avec tests, build d'image Docker et déploiement automatisé.

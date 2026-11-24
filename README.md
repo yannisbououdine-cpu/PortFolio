@@ -2,7 +2,7 @@
 
 Site vitrine de mes projets DevOps réalisés pendant mon Master (M1 et M2).
 
-**Site en ligne :** https://yannisbououdine-cpu.github.io/portfolio/
+**Site en ligne :** https://yannisbououdine-cpu.github.io/PortFolio/
 
 ## Ce que montre ce dépôt
 
@@ -28,7 +28,7 @@ Le site est lui-même un premier projet DevOps :
 ```bash
 # installer Hugo extended : https://gohugo.io/installation/
 hugo server
-# puis ouvrir http://localhost:1313/portfolio/
+# puis ouvrir http://localhost:1313/PortFolio/
 ```
 
 ## Ajouter un projet

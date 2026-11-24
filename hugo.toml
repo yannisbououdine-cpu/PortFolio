@@ -1,4 +1,4 @@
-baseURL = "https://yannisbououdine-cpu.github.io/portfolio/"
+baseURL = "https://yannisbououdine-cpu.github.io/PortFolio/"
 languageCode = "fr-FR"
 title = "Yannis Bououdine · DevOps"
 disableKinds = ["taxonomy", "term", "RSS", "sitemap", "section", "page"]
