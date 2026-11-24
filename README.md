@@ -19,7 +19,7 @@ Le site est lui-même un premier projet DevOps :
 ├── data/competences.yaml          # liste des compétences
 ├── data/projets.yaml              # liste des projets
 ├── layouts/index.html             # gabarit de la page
-├── static/css/style.css           # styles (registre sombre, Syne + Space Mono)
+├── static/css/style.css           # styles (palette en 4 jetons en haut du fichier, Archivo + Space Grotesk)
 ├── static/js/main.js              # animations (particules, scroll, menu, carrousel)
 ├── static/js/gsap.min.js          # GSAP 3.12.5 + ScrollTrigger, hébergés localement
 └── hugo.toml                      # configuration du site

@@ -90,7 +90,7 @@ function particleField(canvas){
   };
   field.frame = time => {
     const p = Math.min(field.progress / .7, 1), e = p * p * (3 - 2 * p);
-    const wob = (1 - e) * 7 * dpr, R = 110 * dpr, size = 1.4 * dpr;
+    const wob = (1 - e) * 7 * dpr, R = 110 * dpr, size = 2.2 * dpr;
     ctx.clearRect(0, 0, W, H);
     ctx.fillStyle = getComputedStyle(canvas).color;
     for (const pt of pts) {
